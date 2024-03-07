@@ -60,12 +60,12 @@
         <number>10</number>
        </property>
        <item>
-        <layout class="QVBoxLayout" name="departureVerticalLayout" stretch="1,5">
+        <layout class="QVBoxLayout" name="departureVerticalLayout" stretch="0,5">
          <property name="spacing">
           <number>10</number>
          </property>
          <item>
-          <widget class="QTextEdit" name="departureTextEdit">
+          <widget class="QLineEdit" name="departureCityLine">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -78,16 +78,13 @@
              <height>30</height>
             </size>
            </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>16777215</height>
-            </size>
+           <property name="placeholderText">
+            <string>Город отправления</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QListWidget" name="departureListWidget">
+          <widget class="QListWidget" name="departureList">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -119,7 +116,7 @@
           <enum>QLayout::SetDefaultConstraint</enum>
          </property>
          <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-          <widget class="QToolButton" name="toolButton">
+          <widget class="QToolButton" name="changeButton">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -168,12 +165,12 @@
         </layout>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="arrivalVerticalLayout" stretch="1,5">
+        <layout class="QVBoxLayout" name="arrivalVerticalLayout" stretch="0,5">
          <property name="spacing">
           <number>10</number>
          </property>
          <item>
-          <widget class="QTextEdit" name="arrivalTextEdit">
+          <widget class="QLineEdit" name="arrivalCityLine">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -186,16 +183,13 @@
              <height>30</height>
             </size>
            </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>16777215</height>
-            </size>
+           <property name="placeholderText">
+            <string>Город прибытия</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QListWidget" name="arrivalListWidget">
+          <widget class="QListWidget" name="arrivalList">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -219,7 +213,7 @@
         </layout>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="DateVerticalLayout" stretch="1,5">
+        <layout class="QVBoxLayout" name="DateVerticalLayout" stretch="1,0">
          <property name="spacing">
           <number>10</number>
          </property>
@@ -232,7 +226,7 @@
             <number>10</number>
            </property>
            <item>
-            <widget class="QLineEdit" name="departureLineEdit">
+            <widget class="QPushButton" name="departureDateButton">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                <horstretch>0</horstretch>
@@ -245,28 +239,13 @@
                <height>30</height>
               </size>
              </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="inputMask">
-              <string/>
-             </property>
              <property name="text">
-              <string/>
-             </property>
-             <property name="placeholderText">
-              <string>Туда</string>
-             </property>
-             <property name="clearButtonEnabled">
-              <bool>false</bool>
+              <string>Дата отпраления</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="arrivalLineEdit">
+            <widget class="QPushButton" name="arrivalDateButton">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                <horstretch>0</horstretch>
@@ -279,54 +258,67 @@
                <height>30</height>
               </size>
              </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
              <property name="text">
-              <string/>
-             </property>
-             <property name="placeholderText">
-              <string>Обратно</string>
+              <string>Дата прибытия</string>
              </property>
             </widget>
            </item>
           </layout>
          </item>
          <item>
-          <widget class="QCalendarWidget" name="depatureCalendar">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
+          <widget class="QFrame" name="calendarFrame">
            <property name="minimumSize">
             <size>
              <width>350</width>
              <height>250</height>
             </size>
            </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>16777215</height>
-            </size>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
            </property>
-           <property name="baseSize">
-            <size>
-             <width>0</width>
-             <height>0</height>
-            </size>
+           <property name="frameShadow">
+            <enum>QFrame::Plain</enum>
            </property>
-           <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="gridVisible">
-            <bool>false</bool>
-           </property>
+           <widget class="QCalendarWidget" name="dateCalendar">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>350</width>
+              <height>250</height>
+             </rect>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>350</width>
+              <height>250</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="autoFillBackground">
+             <bool>true</bool>
+            </property>
+            <property name="gridVisible">
+             <bool>false</bool>
+            </property>
+           </widget>
           </widget>
          </item>
         </layout>
