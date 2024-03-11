@@ -2,10 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QMessageBox>
 #include <QValidator>
-
-#include <mysql.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -34,32 +31,12 @@ private slots:
 
     void on_changeButton_clicked();
 
+    void on_arrivalCityLine_textChanged(const QString &arg1);
+
 private:
     void hideAll();
 
     Ui::MainWindow *ui;
     QRegularExpressionValidator* stringValidator;
-};
-
-class DataBase {
-public:
-    DataBase();
-
-    DataBase(const char* serverIP, const char* user, const char* passwd, const char*dbName);
-
-    DataBase(const DataBase& copy);
-
-    DataBase& operator=(const DataBase& copy);
-
-    void setNewConnection(char* serverIP, char* user, char* passwd, char*dbName);
-
-    MYSQL_RES* performQuery(const char *query);
-
-    bool isConnectionValid();
-
-    ~DataBase();
-
-private:
-    MYSQL *connection = nullptr;
 };
 #endif // MAINWINDOW_H
