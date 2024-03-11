@@ -415,8 +415,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1816</width>
-         <height>601</height>
+         <width>1820</width>
+         <height>605</height>
         </rect>
        </property>
       </widget>
@@ -437,21 +437,10 @@
     <property name="title">
      <string>Меню</string>
     </property>
-    <addaction name="actionDB"/>
    </widget>
    <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionDB">
-   <property name="text">
-    <string>Заполнить базу</string>
-   </property>
-  </action>
-  <action name="actionExit">
-   <property name="text">
-    <string>Выйти из программы</string>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections/>
